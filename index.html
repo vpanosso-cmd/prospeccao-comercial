@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel de Prospecção</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>Painel de prospecção</h1>
+    <p id="lastUpdate"></p>
+  </div>
+  <div class="filter-bar">
+    <label>Responsável:</label>
+    <select id="filterResp" onchange="aplicarFiltro()">
+      <option value="todos">Todos</option>
+    </select>
+  </div>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('dashboard')">Dashboard</button>
+    <button class="tab" onclick="switchTab('consulta')">Consultar empresa</button>
+    <button class="tab" onclick="switchTab('alerta')">Gerar e-mail</button>
+  </div>
+  <div id="tab-dashboard" class="section active"></div>
+  <div id="tab-consulta" class="section">
+    <input type="text" id="searchInput" placeholder="Digite o nome da empresa..." oninput="buscarEmpresa()" />
+    <div id="searchResults"></div>
+  </div>
+  <div id="tab-alerta" class="section">
+    <div class="email-preview" id="emailPreview"></div>
+    <button onclick="copiarEmail()">Copiar e-mail</button>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
